@@ -1,5 +1,6 @@
 from ship import Ship
-from utils import COLOR_CYAN, COLOR_YELLOW, COLOR_RESET, COLOR_GREEN, COLOR_RED, parse_coordinate
+from utils import COLOR_CYAN, COLOR_YELLOW, COLOR_RESET, COLOR_GREEN, COLOR_RED, parse_coordinate, ext
+from typing import Tuple
 
 class Board:
 
@@ -28,7 +29,7 @@ class Board:
                     elif cell == "•":
                         self.misses.add((nr, nc))
 
-    def place_ship(self, coord: str, direction: str, size: int) -> bool:
+    def place_ship(self, coord: str, direction: str, size: int) -> Tuple[bool, str]:
         try:
             row, col = parse_coordinate(coord)
         except ValueError as e:
@@ -60,12 +61,10 @@ class Board:
         for r, c in positions:
             self.grid[r][c] = "■"  
 
-        return True, None
+        return True, ''
 
 
     def shoot(self, coord: str) -> str:
-        if coord in ('exit', 'quit'):
-            return 'exit'
         try:
             row, col = parse_coordinate(coord)
         except ValueError:

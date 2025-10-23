@@ -11,8 +11,7 @@ class Player:
 
     def print_commands(self) -> None:
         print("Формат ввода:")
-        print("\n  <клетка> <горизонтально(h)/вертикально(v)> <длина корабля> — разместить корабль заданной длины")
-        print("  Пример A1 h 4")
+        print("\n  <клетка> <горизонтально(h)/вертикально(v)> <длина корабля> — разместить корабль заданной длины (пример A1 h 4)")
         print("  done — закончить, если все корабли поставлены")
         print("  exit / quit — выйти из игры\n")
 
@@ -43,6 +42,10 @@ class Player:
 
             if command in ("exit", "quit"):
                 ext()
+                continue
+
+            if remaining == 0 and command.lower() != 'done':
+                show_message('Введите команду done!', COLOR_RED)
                 continue
 
             elif command == "done":
@@ -105,9 +108,6 @@ class Player:
             coord = input("Введите координату для выстрела (например, B4)\n\n").strip().upper()
 
             result = opponent.board.shoot(coord)
-
-            if result == 'exit':
-                ext()
 
             if result == "error":
                 show_message("Неверная координата!", COLOR_RED)

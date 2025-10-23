@@ -48,7 +48,7 @@ class Game:
         print("\nСпасибо за игру!\n")
 
 
-    def check_winner(self) -> None:
+    def check_winner(self) -> bool:
         clear_screen()
         if self.player1.board.all_ships_sunk():
             print(f"{COLOR_GREEN}Все корабли потоплены!")
