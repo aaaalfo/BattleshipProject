@@ -1,5 +1,5 @@
 from ship import Ship
-from utils import COLOR_CYAN, COLOR_YELLOW, COLOR_RESET, COLOR_GREEN, COLOR_RED, parse_coordinate, ext
+from utils import COLOR_CYAN, COLOR_YELLOW, COLOR_RESET, COLOR_GREEN, COLOR_RED, parse_coordinate
 from typing import Tuple
 
 class Board:
