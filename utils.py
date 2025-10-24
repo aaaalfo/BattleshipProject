@@ -39,7 +39,7 @@ def show_message(message="", color=COLOR_YELLOW) -> None:
     input("\nНажмите Enter, чтобы продолжить...")
 
 def ext() -> None:
-    confirm = input("\nВы уверены, что хотите выйти? (y/n): ").strip().lower()
+    confirm = input("\nВы уверены, что хотите выйти? (yes/no): ").strip().lower()
     if confirm == "y":
         clear_screen()
         print("\nВы вышли из игры. До встречи, капитан!\n")

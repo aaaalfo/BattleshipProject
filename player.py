@@ -107,6 +107,9 @@ class Player:
 
             coord = input("Введите координату для выстрела (например, B4)\n\n").strip().upper()
 
+            if coord.strip().lower() in ('exit', 'quit'):
+                ext()
+                
             result = opponent.board.shoot(coord)
 
             if result == "error":
