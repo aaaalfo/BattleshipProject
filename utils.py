@@ -22,8 +22,8 @@ def parse_coordinate(coord: str) -> Tuple[int, int]:
     if not letter.isalpha() or not number.isdigit():
         raise ValueError("Неверный формат координаты. Пример: A1, J10")
 
-    row = int(number) - 1  
-    col = ord(letter) - ord('A')         
+    row = int(number) - 1
+    col = ord(letter) - ord('A')
 
     if not (0 <= col < 10 and 0 <= row < 10):
         raise ValueError("Координата вне поля 10x10")
@@ -40,7 +40,7 @@ def show_message(message="", color=COLOR_YELLOW) -> None:
 
 def ext() -> None:
     confirm = input("\nВы уверены, что хотите выйти? (yes/no): ").strip().lower()
-    if confirm == "y":
+    if confirm == "yes":
         clear_screen()
         print("\nВы вышли из игры. До встречи, капитан!\n")
         sys.exit(0)
